@@ -9,12 +9,12 @@ class Request{
 	private $params = array();
 
 	public function __construct($method, $protocol, $server_ip, $remote_ip, $resource, $params){
-		$_SERVER['REQUEST_METHOD'] = $method;
-		$_SERVER['SERVER_PROTOCOL'] = $protocol;	
-		$_SERVER['SERVER_ADDR'] = $server_ip;
-		$_SERVER['REMOTE_ADDR'] = $remote_ip;
-		$_SERVER['REQUEST_URI'] = $resource;	
-		array($_SERVER['QUERY_STRING']) = $params;	
+		$method = $_SERVER['REQUEST_METHOD'];
+		$protocol = $_SERVER['SERVER_PROTOCOL'];	
+		$server_ip = $_SERVER['SERVER_ADDR'];
+		$remote_ip = $_SERVER['REMOTE_ADDR'];
+		$resource = $_SERVER['REQUEST_URI'];	
+		$params = array($_SERVER['QUERY_STRING']);	
 	}
 
 	public function __get($method){
