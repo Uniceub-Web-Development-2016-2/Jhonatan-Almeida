@@ -3,16 +3,18 @@
 class Request{
 	private $method;
 	private $protocol;
-	private $ip;
+	private $server_ip;
+	private $remote_ip;
 	private $resource;
-	private $parameters = array();
+	private $params = array();
 
-	public function __construct($mehod, $protocol, $ip, $resource, $parameters){
-		$this->$ids = $ids;
+	public function __construct($method, $protocol, $server_ip, $remote_ip, $resource, $params){
+		$this->$method = $method;
 		$this->$protocol = $protocol;	
-		$this->$ip = $ip;
+		$this->$server_ip = $server_ip;
+		$this->$remote_ip = $remote_ip;
 		$this->$resource = $resource;	
-		$this->$parameters = $parameters;	
+		$this->$params = $params;	
 	}
 
 	public function __get($method){
@@ -29,11 +31,18 @@ class Request{
 		$this->$protocol = $Value;
 	}
 
-	public function __get($ip){
-		return $this->$ip;
+	public function __get($server_ip){
+		return $this->$server_ip;
 	}
-	public function __set($ip, $Value){
-		$this->$ip = $Value;
+	public function __set($server_ip, $Value){
+		$this->$server_ip = $Value;
+	}
+
+	public function __get($remote_ip){
+		return $this->$remote_ip;
+	}
+	public function __set($remote_ip, $Value){
+		$this->$remote_ip = $Value;
 	}
 
 	public function __get($resource){
