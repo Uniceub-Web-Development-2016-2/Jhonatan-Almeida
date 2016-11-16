@@ -29,7 +29,7 @@ paths:
         default:
           description: Unexpected error
           schema:
-            $ref: '#/definitions/Error' #fazer json?
+            $ref: '#/definitions/Error'
   /tutorial:
     get:
       summary: Tutorial listings
@@ -40,11 +40,11 @@ paths:
         200: #verificar tipo do erro
           description: #definir
           schema:
-            $ref: '#/definitions/Profile' #fazer json?
+            $ref: '#/definitions/Profile' 
         default:
           description: Unexpected error
           schema:
-            $ref: '#/definitions/Error' #fazer json?
+            $ref: '#/definitions/Error'
   /competition:
     get:
       summary: User created competition
@@ -55,11 +55,11 @@ paths:
         200: #verificar tipo do erro
           description: #definir
           schema:
-            $ref: '#/definitions/Profile' #fazer json?
+            $ref: '#/definitions/Profile' 
         default:
           description: Unexpected error
           schema:
-            $ref: '#/definitions/Error' #fazer json?          
+            $ref: '#/definitions/Error'          
   /forum:
     get:
       summary: Forum index
@@ -70,11 +70,11 @@ paths:
         200: #verificar tipo do erro
           description: 
           schema:
-            $ref: '#/definitions/Profile' #fazer json?
+            $ref: '#/definitions/Profile' 
         default:
           description: Unexpected error
           schema:
-            $ref: '#/definitions/Error' #fazer json?
+            $ref: '#/definitions/Error'
 
 
 
@@ -276,21 +276,18 @@ definitions:
   Profile:
     type: object
     properties:
-      first_name:
+      name:
         type: string
-        description: First name of the Uber user.
-      last_name:
+        description: Display the name of the user.
+      login:
         type: string
-        description: Last name of the Uber user.
-      email:
+        description:  Display the login of the user.
+      date:
         type: string
-        description: Email address of the Uber user
-      picture:
+        description: Display the birthdate of the user.
+      points:
         type: string
-        description: Image URL of the Uber user.
-      promo_code:
-        type: string
-        description: Promo code of the Uber user.
+        description: Display the points of the user.
   Activity:
     type: object
     properties:

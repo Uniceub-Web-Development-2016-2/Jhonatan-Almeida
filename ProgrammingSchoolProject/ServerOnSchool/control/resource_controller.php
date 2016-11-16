@@ -1,5 +1,5 @@
 <?php
-include('db_manager.php');
+include_once('db_manager.php');
 include_once('request.php');
 
 class ResourceController
@@ -12,11 +12,14 @@ class ResourceController
 
     }
 
+
+    //criar gerador de queries para search, create e update (verificar como será feito o delete)
+
     private function search($request)
     {
         $query = 'SELECT*FROM ' . $request->getResource() . "' WHERE '" . self::queryParams($request->getParameters());
-        $result = (new DBConnector())->query($query)->fetch();
-        return $result;
+        $result = (new DBConnector())->query($query);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     private function create($request)
@@ -82,6 +85,13 @@ class ResourceController
 
 }
 
-
-
-
+// Como adaptar ao meu api?
+/*
+function __autoload($classe)
+{
+    if(file_exists("app.ado/{$classe}.class.php"))
+    {
+        include_once "app.ado/{$classe}.class.php";
+    }
+}
+*/
